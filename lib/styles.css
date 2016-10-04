@@ -86,7 +86,7 @@ li {
   padding-bottom: 20px;
 }
 .up-btn {
-  background-image: url('images/upvote.svg');
+
   background-color: transparent;
   border: none;
   height: 30px;
@@ -95,7 +95,6 @@ li {
 }
 
 .up-btn:hover {
-  background-image: url('images/upvote-hover.svg');
   background-color: transparent;
   border: none;
   height: 30px;
@@ -103,7 +102,6 @@ li {
 }
 
 .down-btn {
-  background-image: url('images/downvote.svg');
   background-color: transparent;
   border: none;
   height: 30px;
@@ -113,7 +111,6 @@ li {
 }
 
 .down-btn:hover {
-  background-image: url('images/downvote-hover.svg');
   background-color: transparent;
   border: none;
   height: 30px;
@@ -121,7 +118,6 @@ li {
 }
 
 .delete-btn {
-  background: url('images/delete.svg') no-repeat;
   border: none;
   height: 30px;
   width: 30px;
@@ -129,7 +125,6 @@ li {
 }
 
 .delete-btn:hover {
-  background-image: url('images/delete-hover.svg');
   height: 30px;
   width: 30px;
 }
@@ -146,7 +141,7 @@ li {
 
   .body-input {
     height: 90px;
-    vertical-align: : top;
+    vertical-align: top;
   }
 
   ul {
@@ -164,4 +159,8 @@ li {
   .body {
     font-size: 15px;
   }
+}
+
+.complete {
+  text-decoration: line-through;
 }
