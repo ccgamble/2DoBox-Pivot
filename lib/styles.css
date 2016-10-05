@@ -114,6 +114,6 @@ li {
   }
 }
 
-.complete {
+.complete .first-line {
   text-decoration: line-through;
 }
