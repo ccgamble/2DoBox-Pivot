@@ -38,5 +38,8 @@
     "webdriverio": "^4.2.16",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "svg-url-loader": "^1.1.0"
   }
 }

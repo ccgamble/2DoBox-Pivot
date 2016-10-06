@@ -1,13 +1,20 @@
 @import 'reset.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 $primary-text-color: #F00;
+$header-text-family: 'Roboto Slab', serif;
+$primary-text-family: 'Open Sans', sans-serif;
+$white-background-color: #FFF;
 
 body {
-  color: $primary-text-color
+  color: $primary-text-color;
+  font-family: $primary-text-family;
+  text-align: center;
 }
 
 h1 {
-  font-family: 'Roboto Slab', serif;
+  font-family: $header-text-family;
   padding: 20px;
   font-size: 60px;
   color: #00A79D
@@ -17,10 +24,6 @@ span {
   color: #6D6E71
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-}
 .hero {
   height: 350px;
   background: #E5F3F2;
@@ -37,15 +40,68 @@ input {
 }
 
 .save-btn {
-  color: #FFFFFF;
+  color: $white-background-color;
   background-color: #00A79D;
   font-size: 20px;
   border:none;
   height: 30px;
 }
 
+.delete-btn {
+  background-image: url("./images/delete.svg");
+  background-color: $white-background-color;
+  border: none;
+  width: 20px;
+  height: 20px;
+  float:right;
+}
+
+.delete-btn:hover {
+  background-image: url("./images/delete-hover.svg");
+  background-color: $white-background-color;
+  border: none;
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+.up-btn {
+  background-image: url("./images/upvote.svg");
+  background-color: $white-background-color;
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.up-btn:hover {
+  background-image: url("./images/upvote-hover.svg");
+  background-color: $white-background-color;
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.down-btn {
+  background-image: url("./images/downvote.svg");
+  background-color: $white-background-color;
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.down-btn:hover {
+  background-image: url("./images/downvote-hover.svg");
+  background-color: $white-background-color;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
 :disabled {
-  background-color: gray;
+  background-color: lightgray;
 }
 
 .list {
@@ -69,12 +125,12 @@ li {
 
 .title {
   font-size: 30px;
-  font-family: 'Roboto Slab', serif;
+  font-family: $header-text-family;
   color: #6D6E71;
 }
 
 .body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $primary-text-family;
   font-size: 18px;
   color: #939598;
   margin-bottom: 20px;

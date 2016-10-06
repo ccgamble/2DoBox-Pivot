@@ -25,6 +25,7 @@ describe('our test bundle', function () {
       var ideaDescriptions = browser.getText('.body');
       assert.equal(ideaDescriptions.replace(/\n/g, ", "), 'great description');
   });
+context('', function() {
 
   it('should clear the input fields', function(){
 	   browser.url('/');
@@ -39,15 +40,18 @@ describe('our test bundle', function () {
      assert.equal(ideaDescription.getValue(), "");
 
   });
-    it.skip('should delete the idea when the delete button is clicked', function(){
-      browser.url('/');
-      var idea = browser.element(".idea");
+    it('should delete the idea when the delete button is clicked', function(){
+      // browser.url('/');
+      var title = browser.getText('.title');
+      var body = browser.getText('.body');
 
-      browser.click('.delete-btn');
+      // browser.click('.delete-btn');
 
-      assert.equal(idea, "");
+      assert.equal(title, "great title");
+      assert.equal(body, "great description");
 
     });
+  });
 
     it.skip('should edit the title and description when clicked outside text field', function(){
 
