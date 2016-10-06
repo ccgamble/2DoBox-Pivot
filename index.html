@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link rel="stylesheet" href="reset.css" >
     <link rel="stylesheet" href="styles.css" >
@@ -10,21 +10,26 @@
   </head>
 
   <body>
-    <div class="hero">
+    <section class="hero">
       <h1>idea<span>box</span></h1>
-      <input class="title-input" type="text" name="title" value="Title">
-      <span>Character Count: <span class="title-count"></span>
-      <input class="body-input" type="textarea" name="body" value="Body">
+      <input class="title-input" type="text" title="title" value="Title">
+      <span>Character Count: <span class="title-count"></span><br>
+      <input class="body-input" type="text" title="body" value="Body">
       <span>Character Count: <span class= "body-count"></span></span><br>
-      <button class = "save-btn" type="button" name="button" disabled>save</button><br>
+      <button class="save-btn" type="button" title="save" disabled>save</button><br>
+    </section>
 
-    </div>
-
-    <div class="list">
-      <input class="search-input" type="text" name="search" value="Search">
+    <section class="list">
+      <input class="search-input" type="text" title="search" value="Search">
       <button type="button" class="show-completed">Show Completed Tasks</button>
+      <h3> Filter by Importance </h3>
+      <button type="button" class="critical-filter">Critical</button>
+      <button type="button" class="high-filter">High</button>
+      <button type="button" class="normal-filter">Normal</button>
+      <button type="button" class="low-filter">Low</button>
+      <button type="button" class="none-filter">None</button>
       <ul class= "idea-list"></ul>
-    </div>
+    </section>
 
 
     <script src="main.bundle.js"></script>
