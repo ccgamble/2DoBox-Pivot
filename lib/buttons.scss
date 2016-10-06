@@ -1,0 +1,37 @@
+.btn {
+  background-color: #FFF;
+  border-radius: 10px;
+  color: black;
+  display:inline-block;;
+  align-self: center;
+  font-size: 14px;
+  line-height: 1;
+  margin: 10px;
+  padding: 5px 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.critical-filter {
+  border: red 4px solid;
+}
+
+.high-filter {
+  border: orange 4px solid;
+}
+
+.normal-filter {
+  border: green 4px solid;
+}
+
+.low-filter {
+  border: blue 4px solid;
+}
+
+.none-filter {
+  border: grey 4px solid;
+}
+
+.all-filter {
+  border: black 4px solid;
+}
