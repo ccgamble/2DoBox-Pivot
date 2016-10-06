@@ -6,5 +6,6 @@ describe('our test bundle', function () {
   });
 
   it('should keep a character count for title and body input fields', function() {
-    
-  })
+
+  });
+});
