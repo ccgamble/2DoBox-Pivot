@@ -37,9 +37,11 @@ h3 {
 .search-input {
   display: inline-block;
 }
+
 .show-completed {
   display: inline-block;
 }
+
 aside {
   color: #FFF;
   font-size: 20px;
@@ -74,8 +76,8 @@ input {
 .delete-btn, .up-btn, .down-btn {
   background-color: $white-background-color;
   border: none;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .delete-btn {
@@ -137,7 +139,7 @@ li {
 .body {
   font-family: $primary-text-family;
   font-size: 18px;
-  color: #939598;
+  color: $input-text-color;
   margin-bottom: 20px;
   display: block;
 }
