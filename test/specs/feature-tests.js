@@ -24,7 +24,6 @@ describe('our test bundle', function () {
 
       var ideaDescriptions = browser.getText('.body');
       assert.equal(ideaDescriptions.replace(/\n/g, ", "), 'great description');
-
   });
 
   it('should clear the input fields', function(){
@@ -41,8 +40,15 @@ describe('our test bundle', function () {
 
   });
     it.skip('should delete the idea when the delete button is clicked', function(){
+      browser.url('/');
+      var idea = browser.element(".idea");
+
+      browser.click('.delete-btn');
+
+      assert.equal(idea, "");
 
     });
+
     it.skip('should edit the title and description when clicked outside text field', function(){
 
     });
@@ -79,6 +85,9 @@ describe('our test bundle', function () {
 
     });
     it.skip('should disable the save-btn when the input fields are empty or have over 120 characters', function() {
+
+    });
+    it.skip('should keep a character count for title and body input fields', function() {
 
     });
   });
