@@ -48,7 +48,7 @@
 	if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }
 	mocha.setup({"ui":"bdd"});
 	__webpack_require__(15)
-	__webpack_require__(21);
+	__webpack_require__(23);
 	if(false) {
 		module.hot.accept();
 		module.hot.dispose(function() {
@@ -453,16 +453,73 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const assert = __webpack_require__(16);
+	__webpack_require__(16);
+	__webpack_require__(22);
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const assert = __webpack_require__(17);
 
 	describe('our test bundle', function () {
 	  it('should work', function () {
 	    assert(true);
 	  });
+
+	  it('should be able to add my ideas to the page', function () {
+
+	    browser.url('/');
+	    var ideaTitle = browser.element(".title-input");
+	    var ideaDescription = browser.element(".body-input");
+
+	    ideaTitle.setValue('great title');
+	    ideaDescription.setValue('great description');
+
+	    assert.equal(ideaTitle.getValue(), 'great title');
+	    assert.equal(ideaDescription.getValue(), 'great description');
+
+	    browser.click('.save-btn');
+
+	    var ideaTitles = browser.getText('.title');
+	    assert.equal(ideaTitles.replace(/\n/g, ", "), 'great title');
+
+	    var ideaDescriptions = browser.getText('.body');
+	    assert.equal(ideaDescriptions.replace(/\n/g, ", "), 'great description');
+	  });
+
+	  it('should clear the input fields', function () {
+	    browser.url('/');
+	    var ideaTitle = browser.element(".title-input");
+	    var ideaDescription = browser.element(".body-input");
+
+	    ideaTitle.setValue('great title');
+	    ideaDescription.setValue('great description');
+	    browser.click('.save-btn');
+
+	    assert.equal(ideaTitle.getValue(), "");
+	    assert.equal(ideaDescription.getValue(), "");
+	  });
+	  it.skip('should delete the idea when the delete button is clicked', function () {});
+
+	  it.skip('should edit the title and description when clicked outside text field', function () {});
+	  it.skip('should pre-populate field with current text when editing', function () {});
+	  it.skip('should mark an idea as completed with completed button clicked', function () {});
+	  it.skip('should filter the ideas when entering text in search box', function () {});
+	  it.skip('should save ideas and changes on reload', function () {});
+	  it.skip('completed ideas should be hidden on load', function () {});
+	  it.skip('should change the importance when user clicks up or down vote', function () {});
+
+	  it.skip('should filter level of importance when level of importance buttons are clicked', function () {});
+
+	  it.skip('should show completed tasks when user clicks show-completed button', function () {});
+	  it.skip('should only display ten ideas when the page loads', function () {});
+	  it.skip('should display all ideas when show more button is clicked', function () {});
+	  it.skip('should disable the save-btn when the input fields are empty or have over 120 characters', function () {});
 	});
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -534,7 +591,7 @@
 	// ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 	// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var util = __webpack_require__(17);
+	var util = __webpack_require__(18);
 	var hasOwn = Object.prototype.hasOwnProperty;
 	var pSlice = Array.prototype.slice;
 	var functionsHaveNames = function () {
@@ -937,7 +994,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -1430,7 +1487,7 @@
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(19);
+	exports.isBuffer = __webpack_require__(20);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -1467,7 +1524,7 @@
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(20);
+	exports.inherits = __webpack_require__(21);
 
 	exports._extend = function (origin, add) {
 	  // Don't do anything if add isn't an object
@@ -1484,10 +1541,10 @@
 	function hasOwnProperty(obj, prop) {
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(18)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(19)))
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -1671,7 +1728,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -1679,7 +1736,7 @@
 	};
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -1707,7 +1764,21 @@
 	}
 
 /***/ },
-/* 21 */
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const assert = __webpack_require__(17);
+
+	describe('our test bundle', function () {
+	  it('should work', function () {
+	    assert(true);
+	  });
+
+	  it('should keep a character count for title and body input fields', function () {});
+	});
+
+/***/ },
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {process.nextTick(function() {
@@ -1718,7 +1789,7 @@
 			mocha.run();
 	});
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)))
 
 /***/ }
 /******/ ]);
