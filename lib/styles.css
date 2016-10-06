@@ -36,6 +36,10 @@ input {
   height: 30px;
 }
 
+:disabled {
+  background-color: gray;
+}
+
 .list {
   height: 1000px;
   padding: 30px;
