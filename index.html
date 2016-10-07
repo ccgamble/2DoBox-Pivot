@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Idea Box</title>
   </head>
 
   <body>
+    <header>
+    <h1>2DOBOX</h1>
+  </header>
+
     <section class="hero">
-      <h1>idea<span>box</span></h1>
+
+
       <input class="title-input" type="text" title="title" value="Title">
-      <span>Character Count: <span class="title-count"></span><br>
+      <aside title="character-count">Count: <span class="title-count"></aside>
       <input class="body-input" type="text" title="body" value="Body">
-      <span>Character Count: <span class= "body-count"></span></span><br>
+      <aside title="character=count">Count: <span class= "body-count"></aside>
       <button class="save-btn" type="button" title="save" disabled>save</button><br>
     </section>
 
     <section class="list">
       <input class="search-input" type="text" title="search" value="Search">
-      <button type="button" class="show-completed">Show Completed Tasks</button>
+
       <h3> Filter by Importance </h3>
-      <button type="button" class="critical-filter">Critical</button>
-      <button type="button" class="high-filter">High</button>
-      <button type="button" class="normal-filter">Normal</button>
-      <button type="button" class="low-filter">Low</button>
-      <button type="button" class="none-filter">None</button>
+      <button type="button" class="btn all-filter">All</button>
+      <button type="button" class="btn none-filter">None</button>
+      <button type="button" class="btn low-filter">Low</button>
+      <button type="button" class="btn normal-filter">Normal</button>
+      <button type="button" class="btn high-filter">High</button>
+      <button type="button" class="btn critical-filter">Critical</button>
+      <p><button type="button" class="btn show-completed">Show Completed Tasks</button></p>
       <ul class= "idea-list"></ul>
-      <button class= "show-more" type="button" title="show-more">Show More</button>
+      <button class= "btn show-more" type="button" title="show-more">Show More</button>
     </section>
 
     <script src="main.bundle.js"></script>
