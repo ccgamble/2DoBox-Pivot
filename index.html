@@ -12,10 +12,11 @@
   </header>
 
     <section class="hero">
-      <input class="title-input" type="text" title="title" value="Title">
+      <input class="title-input" type="text" title="title" value="Title" placeholder="Title">
       <aside title="character-count">Count: <span class="title-count"></aside>
-      <input class="body-input" type="text" title="body" value="Body">
+      <input class="body-input" type="text" title="body" value="Body" placeholder="Body">
       <aside title="character=count">Count: <span class= "body-count"></aside>
+      <p>Date: <input type="text" class="date-input" id="datepicker"></p>
       <button class="save-btn" type="button" title="save" disabled>save</button><br>
     </section>
 
@@ -34,5 +35,12 @@
     </section>
 
     <script src="main.bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>
   </body>
 </html>

@@ -16,6 +16,10 @@ header {
   background-color: $header-background;
 }
 
+#ui-datepicker-div {
+  background-color: white;
+}
+
 body {
   color: $primary-text-color;
   font-family: $primary-text-family;
@@ -86,6 +90,8 @@ li {
   height: 40px;
   margin-top: 20px;
   border-radius: 5px;
+  display: block;
+  margin: auto;
 }
 
 .delete-btn, .up-btn, .down-btn, .completed-btn {
