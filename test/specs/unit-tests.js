@@ -14,9 +14,19 @@ describe('domObject', function () {
     it('should remove idea with the given id', function() {
       var ideaList = [{id:1}, {name: 'Chelsea', id:2}, {id:3}];
       var result = domObject.removeIdea(2, ideaList);
-      assert.equal(result.length, 2)
-      assert.equal(result, )
-    })
-  })
+      assert.equal(result.length, 2);
+      assert.deepEqual(result, [{id:1}, {id:3}]);
+    });
+  });
+
+  context('clearPage', function() {
+    it('should clear the page of all ideas', function() {
+      var ideaList = [{id:1}, {name: 'Chelsea', id:2}, {id:3}];
+      var result = domObject.clearPage();
+      assert.equal(result.length, 0);
+    });
+  });
+
+  
 
 });
