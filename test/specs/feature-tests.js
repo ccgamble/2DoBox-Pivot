@@ -4,56 +4,55 @@ describe('our test bundle', function () {
   it('should work', function () {
     assert(true);
   });
-});
 
-//   it('should be able to add my ideas to the page',function(){
-//
-//       browser.url('/');
-//       var ideaTitle = browser.element(".title-input");
-//       var ideaDescription = browser.element(".body-input");
-//
-//       ideaTitle.setValue('great title');
-//       ideaDescription.setValue('great description');
-//
-//       assert.equal(ideaTitle.getValue(), 'great title');
-//       assert.equal(ideaDescription.getValue(), 'great description');
-//
-//       browser.click('.save-btn');
-//
-//       var ideaTitles = browser.getText('.title');
-//       assert.equal(ideaTitles.replace(/\n/g, ", "), 'great title');
-//
-//       var ideaDescriptions = browser.getText('.body');
-//       assert.equal(ideaDescriptions.replace(/\n/g, ", "), 'great description');
-//   });
-// context('', function() {
-//
-//   it('should clear the input fields', function(){
-// 	   browser.url('/');
-//      var ideaTitle = browser.element(".title-input");
-//      var ideaDescription = browser.element(".body-input");
-//
-//      ideaTitle.setValue('great title');
-//      ideaDescription.setValue('great description');
-//      browser.click('.save-btn');
-//
-//      assert.equal(ideaTitle.getValue(), "");
-//      assert.equal(ideaDescription.getValue(), "");
-//
-//   });
-//     it('should delete the idea when the delete button is clicked', function(){
-//       // browser.url('/');
-//       var title = browser.getText('.title');
-//       var body = browser.getText('.body');
-//
-//       // browser.click('.delete-btn');
-//
-//       assert.equal(title, "great title");
-//       assert.equal(body, "great description");
-//
-//     });
-//   });
-// });
+  it('should be able to add my ideas to the page',function(){
+
+      browser.url('/');
+      var ideaTitle = browser.element(".title-input");
+      var ideaDescription = browser.element(".body-input");
+
+      ideaTitle.setValue('great title');
+      ideaDescription.setValue('great description');
+
+      assert.equal(ideaTitle.getValue(), 'great title');
+      assert.equal(ideaDescription.getValue(), 'great description');
+
+      browser.click('.save-btn');
+
+      var ideaTitles = browser.getText('.title');
+      assert.equal(ideaTitles.replace(/\n/g, ", "), 'great title');
+
+      var ideaDescriptions = browser.getText('.body');
+      assert.equal(ideaDescriptions.replace(/\n/g, ", "), 'great description');
+  });
+context('', function() {
+
+  it('should clear the input fields', function(){
+	   browser.url('/');
+     var ideaTitle = browser.element(".title-input");
+     var ideaDescription = browser.element(".body-input");
+
+     ideaTitle.setValue('great title');
+     ideaDescription.setValue('great description');
+     browser.click('.save-btn');
+
+     assert.equal(ideaTitle.getValue(), "");
+     assert.equal(ideaDescription.getValue(), "");
+
+  });
+    it('should delete the idea when the delete button is clicked', function(){
+      // browser.url('/');
+      var title = browser.getText('.title');
+      var body = browser.getText('.body');
+
+      // browser.click('.delete-btn');
+
+      assert.equal(title, "great title");
+      assert.equal(body, "great description");
+
+    });
+  });
+});
 
   //   it.skip('should edit the title and description when clicked outside text field', function(){
   //
