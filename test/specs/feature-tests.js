@@ -33,8 +33,6 @@ describe('our test bundle', function () {
      var ideaTitle = browser.element(".title-input");
      var ideaDescription = browser.element(".body-input");
 
-    //  ideaTitle.setValue('great title');
-    //  ideaDescription.setValue('great description');
      browser.click('.save-btn');
 
      assert.equal(ideaTitle.getText(), "");
@@ -65,14 +63,90 @@ describe('our test bundle', function () {
       assert.equal(title.getText(), "new title");
     });
 
+    it('should change the importance of an idea when a user clicks the up button', function(){
+       browser.url('/');
+       browser.url('/');
+       var ideaTitle = browser.element('.title-input');
+       var ideaDescription = browser.element('.body-input');
+       var ideaList = browser.element('.idea-list');
 
-    it.skip('should delete the idea when the delete button is clicked');
-  //   it.skip('should pre-populate field with current text when editing', function(){
-  //
-  //   });
-  //   it.skip('should mark an idea as completed with completed button clicked', function(){
-  //
-  //   });
+       ideaTitle.setValue('great title');
+       ideaDescription.setValue('great description');
+
+       browser.click('.save-btn');
+
+       var initialImportance = ideaList.elements('li').elements('.quality').getText();
+       assert.equal(initialImportance[0], 'none');
+       browser.click('.up-btn');
+       var importanceAfterUpvote = ideaList.elements('li').elements('.quality').getText();
+       assert.equal(importanceAfterUpvote[0], 'low');
+ });
+   it('should change the importance of an idea when a user clicks the down button', function(){
+      browser.url('/');
+      browser.url('/');
+      var ideaTitle = browser.element('.title-input');
+      var ideaDescription = browser.element('.body-input');
+      var ideaList = browser.element('.idea-list');
+
+      ideaTitle.setValue('great title');
+      ideaDescription.setValue('great description');
+
+      browser.click('.save-btn');
+
+      var initialImportance = ideaList.elements('li').elements('.quality').getText();
+      assert.equal(initialImportance[0], 'none');
+      browser.click('.up-btn');
+      var importanceAfterUpvote = ideaList.elements('li').elements('.quality').getText();
+      assert.equal(importanceAfterUpvote[0], 'low');
+      browser.click('.down-btn');
+      var importanceAfterDownvote = ideaList.elements('li').elements('.quality').getText();
+      assert.equal(importanceAfterDownvote[0], 'none');
+  });
+    it.skip('should delete the idea when the delete button is clicked', function(){
+      browser.url('/');
+      var ideaTitle = browser.element(".title-input");
+      var ideaDescription = browser.element(".body-input");
+
+      ideaTitle.setValue('great title');
+      ideaDescription.setValue('great description');
+
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+
+      var ideasBeforeDelete = browser.elements('li').getText().length;
+
+      browser.click('.delete-btn');
+      browser.click('.delete-btn');
+
+      var ideasAfterDelete = browser.elements('li').getText().length;
+
+      assert.equal(ideasAfterDelete, ideasBeforeDelete-2);
+    });
+
+    it('should mark an idea as completed with completed button clicked', function(){
+      browser.url('/');
+      var ideaTitle = browser.element('.title-input');
+      var ideaDescription = browser.element('.body-input');
+      var ideaList = browser.element('.idea-list');
+
+      ideaTitle.setValue('great title');
+      ideaDescription.setValue('great description');
+
+      browser.click('.save-btn');
+
+      var initialCompletion = ideaList.elements('li').getText();
+      assert.equal(initialCompletion[0], 'new');
+      browser.click('.completed-btn');
+      var afterCompletion = ideaList.elements('li').getText();
+      assert.equal(afterCompletion[0], 'completed');
+    });
+
+        it.skip('should hide completed ideas after refresh', function() {
+          browser.refresh();
+          var completedIdea = browser.element('.complete');
+          //how to test .hide()?
+          assert.equal(completedIdea, 0);
+        });
   //   it.skip('should filter the ideas when entering text in search box', function(){
   //
   //   });
