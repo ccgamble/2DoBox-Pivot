@@ -83,7 +83,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.btn {\n  background-color: #FFF;\n  border-radius: 10px;\n  color: black;\n  display: inline-block;\n  align-self: center;\n  font-size: 14px;\n  line-height: 1;\n  margin: 10px;\n  padding: 5px 20px;\n  text-align: center;\n  font-weight: bold; }\n\n.critical-filter {\n  border: #c0392b 4px solid; }\n\n.critical-filter:hover {\n  background-color: #c0392b;\n  color: white; }\n\n.high-filter {\n  border: #e67e22 4px solid; }\n\n.high-filter:hover {\n  background-color: #e67e22;\n  color: white; }\n\n.normal-filter {\n  border: #27ae60 4px solid; }\n\n.normal-filter:hover {\n  background-color: #27ae60;\n  color: white; }\n\n.low-filter {\n  border: #2980b9 4px solid; }\n\n.low-filter:hover {\n  background-color: #2980b9;\n  color: white; }\n\n.none-filter {\n  border: #7f8c8d 4px solid; }\n\n.none-filter:hover {\n  background-color: #7f8c8d;\n  color: white; }\n\n.all-filter {\n  border: #2c3e50 4px solid; }\n\n.all-filter:hover {\n  background-color: #2c3e50;\n  color: white; }\n\n.show-completed, .show-more {\n  color: white;\n  background-color: #030351;\n  font-size: 20px; }\n\n.show-completed:hover, .show-more:hover {\n  background-color: #0288D1; }\n\nheader {\n  background-color: #0288D1; }\n\nbody {\n  color: #757575;\n  font-family: \"Open Sans\", sans-serif;\n  text-align: center; }\n\nh1 {\n  font-family: \"Roboto Slab\", serif;\n  padding: 20px;\n  font-size: 60px;\n  color: #FFF; }\n\nh3 {\n  color: #757575;\n  font-size: 22px;\n  margin-bottom: 10px; }\n\naside {\n  color: #FFF;\n  font-size: 20px; }\n\ninput {\n  font-size: 25px;\n  color: #757575;\n  width: 50%;\n  margin: 10px;\n  outline: none;\n  border-radius: 5px; }\n\nul {\n  width: 50%;\n  margin: auto; }\n\nli {\n  font-size: 20px;\n  text-align: left;\n  border-bottom: 1px solid #D1D3D4;\n  padding-top: 25px;\n  width: 100%;\n  height: 100%; }\n\n.search-input {\n  display: inline-block; }\n\n.show-completed {\n  display: inline-block; }\n\n.hero {\n  height: 300px;\n  background-color: #030351;\n  text-align: center;\n  padding: 30px; }\n\n.save-btn {\n  color: #FFF;\n  background-color: #0288D1;\n  font-size: 30px;\n  border: none;\n  height: 40px;\n  margin-top: 20px;\n  border-radius: 5px; }\n\n.delete-btn, .up-btn, .down-btn, .completed-btn {\n  background-color: #FFF;\n  border: none;\n  width: 30px;\n  height: 30px; }\n\n.completed-btn {\n  background-image: url(" + __webpack_require__(4) + ");\n  float: right; }\n\n.completed-btn:hover {\n  background-image: url(" + __webpack_require__(5) + "); }\n\n.delete-btn {\n  background-image: url(" + __webpack_require__(6) + ");\n  float: right; }\n\n.delete-btn:hover {\n  background-image: url(" + __webpack_require__(7) + "); }\n\n.up-btn {\n  background-image: url(" + __webpack_require__(8) + ");\n  margin-right: 6px; }\n\n.up-btn:hover {\n  background-image: url(" + __webpack_require__(9) + "); }\n\n.down-btn {\n  background-image: url(" + __webpack_require__(10) + ");\n  margin-right: 6px; }\n\n.down-btn:hover {\n  background-image: url(" + __webpack_require__(11) + "); }\n\n:disabled {\n  background-color: lightgray; }\n\n.list {\n  height: 1000px;\n  padding: 30px; }\n\n.title {\n  font-size: 30px;\n  font-family: \"Roboto Slab\", serif;\n  color: #757575; }\n\n.body {\n  font-family: \"Open Sans\", sans-serif;\n  font-size: 18px;\n  color: #757575;\n  margin-bottom: 20px;\n  display: block; }\n\n.first-line, .third-line {\n  padding-bottom: 20px; }\n\n.complete .first-line {\n  text-decoration: line-through;\n  color: red; }\n\n@media screen and (max-width: 600px) {\n  .hero {\n    height: 300px; }\n  input {\n    font-size: 20px;\n    width: 90%; }\n  .body-input {\n    height: 90px;\n    vertical-align: top; }\n  ul {\n    width: 90%; }\n  h1 {\n    font-size: 40px; }\n  .title {\n    font-size: 25px; }\n  .body {\n    font-size: 15px; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nheader {\n  background-color: #0288D1; }\n\nbody {\n  color: #757575;\n  font-family: \"Open Sans\", sans-serif;\n  text-align: center; }\n\nh1 {\n  color: #FFF;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 60px;\n  padding: 20px; }\n\nh3 {\n  color: #757575;\n  font-size: 22px;\n  margin-bottom: 10px; }\n\naside {\n  color: #FFF;\n  font-size: 20px; }\n\ninput {\n  border-radius: 5px;\n  color: #757575;\n  font-size: 25px;\n  margin: 10px;\n  outline: none;\n  width: 50%; }\n\nul {\n  margin: auto;\n  width: 50%; }\n\nli {\n  border-bottom: 1px solid #D1D3D4;\n  font-size: 20px;\n  height: 100%;\n  padding-top: 25px;\n  text-align: left;\n  width: 100%; }\n\n.search-input, .show-completed {\n  display: inline-block; }\n\n.hero {\n  background-color: #030351;\n  height: 300px;\n  padding: 30px;\n  text-align: center; }\n\n.save-btn {\n  background-color: #0288D1;\n  border: none;\n  border-radius: 5px;\n  color: #FFF;\n  display: block;\n  font-size: 30px;\n  height: 40px;\n  margin: auto;\n  margin-top: 20px; }\n\n.delete-btn, .up-btn, .down-btn, .completed-btn {\n  background-color: #FFF;\n  border: none;\n  height: 30px;\n  width: 30px; }\n\n.completed-btn {\n  background-image: url(" + __webpack_require__(4) + ");\n  float: right; }\n  .completed-btn:hover {\n    background-image: url(" + __webpack_require__(5) + "); }\n\n.delete-btn {\n  background-image: url(" + __webpack_require__(6) + ");\n  float: right; }\n  .delete-btn:hover {\n    background-image: url(" + __webpack_require__(7) + "); }\n\n.up-btn {\n  background-image: url(" + __webpack_require__(8) + ");\n  margin-right: 6px; }\n  .up-btn:hover {\n    background-image: url(" + __webpack_require__(9) + "); }\n\n.down-btn {\n  background-image: url(" + __webpack_require__(10) + ");\n  margin-right: 6px; }\n  .down-btn:hover {\n    background-image: url(" + __webpack_require__(11) + "); }\n\n:disabled {\n  background-color: #bdc3c7; }\n\n.list {\n  height: auto;\n  padding: 30px; }\n\n.title {\n  color: #757575;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 30px; }\n\n.body {\n  color: #757575;\n  display: block;\n  font-family: \"Open Sans\", sans-serif;\n  font-size: 18px;\n  margin-bottom: 20px; }\n\n.first-line, .third-line {\n  padding-bottom: 20px; }\n\n.complete .first-line {\n  text-decoration: line-through;\n  color: red; }\n\n.btn {\n  align-self: center;\n  background-color: #FFF;\n  border-radius: 10px;\n  color: black;\n  display: inline-block;\n  font-size: 14px;\n  font-weight: bold;\n  line-height: 1;\n  margin: 10px;\n  padding: 5px 20px;\n  text-align: center; }\n\n.critical-filter {\n  border: #c0392b 4px solid; }\n  .critical-filter:hover {\n    background-color: #c0392b;\n    color: #FFF; }\n\n.high-filter {\n  border: #e67e22 4px solid; }\n  .high-filter:hover {\n    background-color: #e67e22;\n    color: #FFF; }\n\n.normal-filter {\n  border: #27ae60 4px solid; }\n  .normal-filter:hover {\n    background-color: #27ae60;\n    color: #FFF; }\n\n.low-filter {\n  border: #2980b9 4px solid; }\n  .low-filter:hover {\n    background-color: #2980b9;\n    color: #FFF; }\n\n.none-filter {\n  border: #7f8c8d 4px solid; }\n  .none-filter:hover {\n    background-color: #7f8c8d;\n    color: #FFF; }\n\n.all-filter {\n  border: #2c3e50 4px solid; }\n  .all-filter:hover {\n    background-color: #2c3e50;\n    color: #FFF; }\n\n.show-completed, .show-more {\n  color: #FFF;\n  background-color: #030351;\n  font-size: 20px; }\n  .show-completed:hover, .show-more:hover {\n    background-color: #0288D1; }\n\n@media screen and (max-width: 600px) {\n  .hero {\n    height: 300px; }\n  input {\n    font-size: 20px;\n    width: 90%; }\n  .body-input {\n    height: 90px;\n    vertical-align: top; }\n  ul {\n    width: 90%; }\n  h1 {\n    font-size: 40px; }\n  .title {\n    font-size: 25px; }\n  .body {\n    font-size: 15px; } }\n", ""]);
 
 	// exports
 
@@ -475,8 +475,13 @@
 	  domObject.checkInputs();
 	});
 
+	$('.date-input').on('focusout', function () {
+	  checkDate();
+	});
+
 	$('.save-btn').on('click', function () {
-	  domObject.makeIdeaList($('.title-input').val(), $('.body-input').val(), ideaList);
+	  domObject.makeIdeaList($('.title-input').val(), $('.body-input').val(), $('.date-input').val(), ideaList);
+	  domObject.checkDatePast($('.date-input').val(), ideaList);
 	  domObject.clearField($('.title-input'));
 	  domObject.clearField($('.body-input'));
 	  domObject.checkInputs();
@@ -516,6 +521,10 @@
 	  domObject.sortIdeas(ideaList);
 	  domObject.renderIdeaListToPage(ideaList);
 	  domObject.showFirstTen(ideaList);
+	});
+
+	$('.all-filter').on('click', function () {
+	  domObject.filterByImportance(".critical, .high, .normal, .low, .none", ideaList);
 	});
 
 	$('.critical-filter').on('click', function () {
@@ -568,6 +577,59 @@
 	  });
 	  nonSearchIdeas.hide();
 	});
+
+	function dateIsValid() {
+	  $('.save-btn').attr('disabled', false);
+	  $('.date-error-message').text('');
+	}
+
+	function dateIsNotValid() {
+	  $('.save-btn').attr('disabled', true);
+	  $('.date-error-message').text("Date is not valid");
+	  return false;
+	}
+
+	function checkDate() {
+	  re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+	  if ($('.date-input').val() === '') {
+	    return false;
+	  }
+	  if ($('.date-input').val().match(re)) {
+	    dateIsValid();
+	  } else {
+	    dateIsNotValid();
+	  }
+	  if ($('.date-input').val().substring(0, 1) <= 1 && $('.date-input').val().substring(1, 2) <= 9) {
+	    dateIsValid();
+	  } else {
+	    dateIsNotValid();
+	  }
+	  if ($('.date-input').val().substring(3, 5) <= 31 && $('.date-input').val().substring(3, 5) >= 1) {
+	    dateIsValid();
+	  } else {
+	    dateIsNotValid();
+	  }
+	  if ($('.date-input').val().substring(6, 10) >= 2015 && $('.date-input').val().substring(6, 10) <= 2999) {
+	    dateIsValid();
+	  } else {
+	    dateIsNotValid();
+	  }
+	}
+
+	// checkDatePast: function(date) {
+	//    var EnteredDate = $('.date-input').val();
+	//    var month = (EnteredDate.substring(0, 2)) - 1;
+	//    var day = EnteredDate.substring(3, 5);
+	//    var year = EnteredDate.substring(6, 10);
+	//    var inputDate = new Date(year, month, day);
+	//    var today = new Date();
+	//    if (inputDate < today) {
+	//      debugger
+	//      domObject.addCompleteClass.bind(this)();
+	//      var id = $(this).parents('.idea').attr('id');
+	//      domObject.editElement(id, "completion", "complete", ideaList);
+	//      }
+	//  }
 
 /***/ },
 /* 14 */
@@ -2225,12 +2287,12 @@
 
 	var $ = __webpack_require__(14);
 
-	function Idea({ title, body, id, quality, completion }) {
-	  this.title = title;
-	  this.body = body;
-	  this.id = id || Date.now();
-	  this.quality = quality || 'none';
-	  this.completion = completion || 'new';
+	function Idea(options) {
+	  this.title = options.title;
+	  this.body = options.body;
+	  this.id = options.ioptions.d || Date.now();
+	  this.quality = options.quality || 'none';
+	  this.completion = options.completion || 'new';
 	}
 
 	Idea.prototype.appendIdea = function () {
@@ -2241,11 +2303,12 @@
 	          <button type="button" class="delete-btn" aria-label="delete"></button>
 	        </article>
 	        <span contenteditable class="body edit-body edit-content search" placeholder="Body">${ this.body }</span>
+	        <span contenteditable class="date" placeholder="Due Date"><span>Due Date: </span>${ this.date }</span>
 	        <article class='third-line'>
 	          <button type="button" class="up-btn" aria-label="increase-importance"></button>
 	          <button type="button" class="down-btn" aria-label="decrease-importance" ></button>
 	          <span>Importance: <span class="quality" >${ this.quality }</span></span>
-	          <button type="button" class="completed-btn" aria-label="complete">Completed</button>
+	          <button type="button" class="completed-btn" aria-label="complete"></button>
 	        </article>
 	      </li>
 	  `);
@@ -2419,8 +2482,8 @@
 	    domObject.editElement(id, field, newText, ideaList);
 	  },
 
-	  makeIdeaList: function (title, body, ideaList) {
-	    var item = { title: title, body: body };
+	  makeIdeaList: function (title, body, date, ideaList) {
+	    var item = { title: title, body: body, date: date };
 	    var idea = new Idea(item);
 	    ideaList.push(idea);
 	    this.stringifyForLocalStorage(ideaList);
@@ -2433,6 +2496,19 @@
 	    $quality.text(newQuality);
 	    var id = $(this).parents('.idea').attr('id');
 	    domObject.editElement(id, "quality", newQuality, ideaList);
+	  },
+
+	  checkDatePast: function (date) {
+	    var month = date.substring(0, 2) - 1;
+	    var day = date.substring(3, 5);
+	    var year = date.substring(6, 10);
+	    var inputDate = new Date(year, month, day);
+	    var today = new Date();
+	    if (inputDate < today) {
+	      domObject.addCompleteClass();
+	      var id = $(this).parents('.idea').attr('id');
+	      domObject.editElement(id, "completion", "complete", ideaList);
+	    }
 	  }
 	};
 

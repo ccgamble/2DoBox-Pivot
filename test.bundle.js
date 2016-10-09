@@ -1729,12 +1729,12 @@
 
 	var $ = __webpack_require__(14);
 
-	function Idea({ title, body, id, quality, completion }) {
-	  this.title = title;
-	  this.body = body;
-	  this.id = id || Date.now();
-	  this.quality = quality || 'none';
-	  this.completion = completion || 'new';
+	function Idea(options) {
+	  this.title = options.title;
+	  this.body = options.body;
+	  this.id = options.ioptions.d || Date.now();
+	  this.quality = options.quality || 'none';
+	  this.completion = options.completion || 'new';
 	}
 
 	Idea.prototype.appendIdea = function () {
@@ -1745,11 +1745,12 @@
 	          <button type="button" class="delete-btn" aria-label="delete"></button>
 	        </article>
 	        <span contenteditable class="body edit-body edit-content search" placeholder="Body">${ this.body }</span>
+	        <span contenteditable class="date" placeholder="Due Date"><span>Due Date: </span>${ this.date }</span>
 	        <article class='third-line'>
 	          <button type="button" class="up-btn" aria-label="increase-importance"></button>
 	          <button type="button" class="down-btn" aria-label="decrease-importance" ></button>
 	          <span>Importance: <span class="quality" >${ this.quality }</span></span>
-	          <button type="button" class="completed-btn" aria-label="complete">Completed</button>
+	          <button type="button" class="completed-btn" aria-label="complete"></button>
 	        </article>
 	      </li>
 	  `);
@@ -1923,8 +1924,8 @@
 	    domObject.editElement(id, field, newText, ideaList);
 	  },
 
-	  makeIdeaList: function (title, body, ideaList) {
-	    var item = { title: title, body: body };
+	  makeIdeaList: function (title, body, date, ideaList) {
+	    var item = { title: title, body: body, date: date };
 	    var idea = new Idea(item);
 	    ideaList.push(idea);
 	    this.stringifyForLocalStorage(ideaList);
@@ -1937,6 +1938,19 @@
 	    $quality.text(newQuality);
 	    var id = $(this).parents('.idea').attr('id');
 	    domObject.editElement(id, "quality", newQuality, ideaList);
+	  },
+
+	  checkDatePast: function (date) {
+	    var month = date.substring(0, 2) - 1;
+	    var day = date.substring(3, 5);
+	    var year = date.substring(6, 10);
+	    var inputDate = new Date(year, month, day);
+	    var today = new Date();
+	    if (inputDate < today) {
+	      domObject.addCompleteClass();
+	      var id = $(this).parents('.idea').attr('id');
+	      domObject.editElement(id, "completion", "complete", ideaList);
+	    }
 	  }
 	};
 

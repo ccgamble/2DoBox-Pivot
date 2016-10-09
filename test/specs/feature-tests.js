@@ -1,4 +1,5 @@
 var assert =  require('assert');
+var $ = require('jquery');
 
 describe('our test bundle', function () {
   it('should work', function () {
@@ -6,7 +7,7 @@ describe('our test bundle', function () {
   });
 
   it('should be able to add my ideas to the page',function(){
-
+    
       browser.url('/');
       var ideaTitle = browser.element(".title-input");
       var ideaDescription = browser.element(".body-input");
