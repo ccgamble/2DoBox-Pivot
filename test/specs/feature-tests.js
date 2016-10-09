@@ -156,7 +156,7 @@ describe('our test bundle', function () {
       assert.equal(ideasBeforeRefresh, ideasAfterMoreClicked);
      });
 
-    it.skip('should mark an idea as completed with completed button clicked', function(){
+    it('should mark an idea as completed with completed button clicked', function(){
       browser.url('/');
       var ideaTitle = browser.element('.title-input');
       var ideaDescription = browser.element('.body-input');
@@ -167,8 +167,8 @@ describe('our test bundle', function () {
 
       browser.click('.save-btn');
       browser.click('.completed-btn');
-
-      var afterCompletion = browser.elements('.complete');
+      var idea = browser.element('li').getText();
+      var afterCompletion = browser.element('li.complete').getText();
       assert.equal(idea, afterCompletion);
     });
 
@@ -190,16 +190,9 @@ describe('our test bundle', function () {
       assert.equal(completedIdea, null);
     });
 
-  //   it.skip('should filter the ideas when entering text in search box', function(){
-  //
-  //   });
-
   //   it.skip('should filter level of importance when level of importance buttons are clicked', function() {
   //
   //   });
-  //
-  //   it.skip('should show completed tasks when user clicks show-completed button', function() {
-  //
   //   it.skip('should disable the save-btn when the input fields are empty or have over 120 characters', function() {
   //
   //   });
