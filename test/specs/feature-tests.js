@@ -37,28 +37,36 @@ describe('our test bundle', function () {
     //  ideaDescription.setValue('great description');
      browser.click('.save-btn');
 
-     assert.equal(ideaTitle.getValue(), "Title");
-     assert.equal(ideaDescription.getValue(), "Body");
+     assert.equal(ideaTitle.getText(), "");
+     assert.equal(ideaDescription.getText(), "");
 
   });
-    it('should delete the idea when the delete button is clicked', function(){
-      var title = browser.getText('.title');
-      var body = browser.getText('.body');
+    it('should edit the title and description when these fields are changed', function(){
+      var editTitle = browser.element('.edit-title');
+      var editBody = browser.element('.edit-body');
 
 
-      assert.equal(title, "great title");
-      assert.equal(body, "great description");
+      assert.equal(editTitle.getText(), "great title");
+      assert.equal(editBody.getText(), "great description");
 
+      editTitle.setValue('new title');
+      browser.click('.idea-list');
+      editBody.setValue('new body');
+      browser.click('.idea-list');
+
+      assert.equal(editTitle.getText(), "new title");
+      assert.equal(editBody.getText(), "new body");
+    });
+
+    it('should have edits persist on page after refresh', function() {
+      browser.refresh();
+      var title = browser.element('.title');
+
+      assert.equal(title.getText(), "new title");
     });
 
 
-
-    it('should edit the title and description when clicked outside text field', function(){
-      var title = browser.getText('.title');
-      var body = browser.getText('.body');
-
-      
-    });
+    it.skip('should delete the idea when the delete button is clicked');
   //   it.skip('should pre-populate field with current text when editing', function(){
   //
   //   });
