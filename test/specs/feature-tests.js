@@ -81,6 +81,7 @@ describe('our test bundle', function () {
        var importanceAfterUpvote = ideaList.elements('li').elements('.quality').getText();
        assert.equal(importanceAfterUpvote[0], 'low');
  });
+
    it('should change the importance of an idea when a user clicks the down button', function(){
       browser.url('/');
       browser.url('/');
@@ -102,7 +103,8 @@ describe('our test bundle', function () {
       var importanceAfterDownvote = ideaList.elements('li').elements('.quality').getText();
       assert.equal(importanceAfterDownvote[0], 'none');
   });
-    it.skip('should delete the idea when the delete button is clicked', function(){
+
+    it('should delete the idea when the delete button is clicked', function(){
       browser.url('/');
       var ideaTitle = browser.element(".title-input");
       var ideaDescription = browser.element(".body-input");
@@ -123,7 +125,38 @@ describe('our test bundle', function () {
       assert.equal(ideasAfterDelete, ideasBeforeDelete-2);
     });
 
-    it('should mark an idea as completed with completed button clicked', function(){
+    it('should display all ideas when show more button is clicked', function() {
+      browser.url('/');
+      var ideaTitle = browser.element(".title-input");
+      var ideaDescription = browser.element(".body-input");
+
+      ideaTitle.setValue('great title');
+      ideaDescription.setValue('great description');
+
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+      browser.click('.save-btn');
+
+      var ideasBeforeRefresh = browser.elements('li').getText().length;
+
+      browser.refresh();
+      browser.click('.show-more');
+
+      var ideasAfterMoreClicked = browser.elements('li').getText().length;
+
+      assert.equal(ideasBeforeRefresh, ideasAfterMoreClicked);
+     });
+
+    it.skip('should mark an idea as completed with completed button clicked', function(){
       browser.url('/');
       var ideaTitle = browser.element('.title-input');
       var ideaDescription = browser.element('.body-input');
@@ -133,46 +166,40 @@ describe('our test bundle', function () {
       ideaDescription.setValue('great description');
 
       browser.click('.save-btn');
-
-      var initialCompletion = ideaList.elements('li').getText();
-      assert.equal(initialCompletion[0], 'new');
       browser.click('.completed-btn');
-      var afterCompletion = ideaList.elements('li').getText();
-      assert.equal(afterCompletion[0], 'completed');
+
+      var afterCompletion = browser.elements('.complete');
+      assert.equal(idea, afterCompletion);
     });
 
-        it.skip('should hide completed ideas after refresh', function() {
-          browser.refresh();
-          var completedIdea = browser.element('.complete');
-          //how to test .hide()?
-          assert.equal(completedIdea, 0);
-        });
+    it.skip('should hide completed ideas after refresh', function() {
+      browser.url('/');
+      var ideaTitle = browser.element('.title-input');
+      var ideaDescription = browser.element('.body-input');
+      var ideaList = browser.element('.idea-list');
+
+      ideaTitle.setValue('great title');
+      ideaDescription.setValue('great description');
+
+      browser.click('.save-btn');
+      browser.click('.completed-btn');
+
+      browser.refresh();
+      var completedIdea = browser.element('.complete');
+      var completedIdeaDisplay = completedIdea.getAttribute("display");
+      assert.equal(completedIdea, null);
+    });
+
   //   it.skip('should filter the ideas when entering text in search box', function(){
   //
   //   });
-  //   it.skip('should save ideas and changes on reload', function() {
-  //
-  //   });
-  //   it.skip('completed ideas should be hidden on load', function() {
-  //
-  //   });
-  //   it.skip('should change the importance when user clicks up or down vote', function() {
-  //
-  //   });
-  //
+
   //   it.skip('should filter level of importance when level of importance buttons are clicked', function() {
   //
   //   });
   //
   //   it.skip('should show completed tasks when user clicks show-completed button', function() {
   //
-  //   });
-  //   it.skip('should only display ten ideas when the page loads', function() {
-  //
-  //   });
-  //   it.skip('should display all ideas when show more button is clicked', function() {
-  //
-  //   });
   //   it.skip('should disable the save-btn when the input fields are empty or have over 120 characters', function() {
   //
   //   });
