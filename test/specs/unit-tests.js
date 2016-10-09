@@ -1,6 +1,6 @@
 const assert =  require('assert');
 const domObject = require('../../lib/domObject');
-const Idea = require('../../lib/idea')
+const Idea = require('../../lib/idea');
 
 describe('domObject', function () {
   context('findIdea', function() {
