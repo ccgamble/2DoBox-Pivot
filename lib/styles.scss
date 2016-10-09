@@ -95,8 +95,12 @@ li {
   margin-bottom: 20px;
 }
 
-.date, .quality{
+.date, .quality, .importance{
   font-size: 16px;
+}
+.importance {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .first-line, .third-line {
@@ -110,7 +114,6 @@ li {
 
 //Button Styling
 .btn {
-  align-self: center;
   border-radius: 10px;
   display: inline-block;;
   font-size: 14px;
@@ -155,7 +158,7 @@ li {
 
 .completed-btn {
   background-image: url("./images/complete.svg");
-  float: right;
+  margin-left: 20px;
     &:hover {
       background-image: url("./images/complete-hover.svg");
     }
@@ -163,7 +166,6 @@ li {
 
 .delete-btn {
   background-image: url("./images/delete.svg");
-  float:right;
     &:hover {
         background-image: url("./images/delete-hover.svg");
     }
@@ -238,7 +240,7 @@ li {
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 900px){
   h1 {
     font-size: 50px;
   }
@@ -268,7 +270,13 @@ li {
   .body {
     font-size: 15px;
   }
+
   .show-completed, .show-more{
     font-size: 14px;
+  }
+
+  .importance {
+    margin-left: 2px;
+    margin-right: 20px;
   }
 }
