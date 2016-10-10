@@ -171,33 +171,4 @@ describe('our test bundle', function () {
       var afterCompletion = browser.element('li.complete').getText();
       assert.equal(idea, afterCompletion);
     });
-
-    it.skip('should hide completed ideas after refresh', function() {
-      browser.url('/');
-      var ideaTitle = browser.element('.title-input');
-      var ideaDescription = browser.element('.body-input');
-      var ideaList = browser.element('.idea-list');
-
-      ideaTitle.setValue('great title');
-      ideaDescription.setValue('great description');
-
-      browser.click('.save-btn');
-      browser.click('.completed-btn');
-
-      browser.refresh();
-      var completedIdea = browser.element('.complete');
-      var completedIdeaDisplay = completedIdea.getAttribute("display");
-      assert.equal(completedIdea, null);
-    });
-
-  //   it.skip('should filter level of importance when level of importance buttons are clicked', function() {
-  //
-  //   });
-  //   it.skip('should disable the save-btn when the input fields are empty or have over 120 characters', function() {
-  //
-  //   });
-  //   it.skip('should keep a character count for title and body input fields', function() {
-  //
-  //   });
-  // });
 });

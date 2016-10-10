@@ -43,19 +43,4 @@ describe('domObject', function () {
       assert.deepEqual(ideaList,  [ { id: 1 }, { name: 'Christine', id: 2 }, { id: 3 } ]);
     });
   });
-  //
-  // context('checkPastDate', function() {
-  //   it('should compare given date to current date', function() {
-  //     var ideaList = [{id: 1}, {id: 2}, {id: 3}];
-  //     var idea = new Idea({date:"04/05/2015", id:4});
-  //     domObject.checkPastDate("04/05/2015", 4, idea, ideaList);
-  //     assert.deepEqual(ideaList[3], "");
-  //
-  //   });
-  // });
-
-
-
-
-
 });
