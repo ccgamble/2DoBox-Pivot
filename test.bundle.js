@@ -1729,12 +1729,13 @@
 
 	var $ = __webpack_require__(14);
 
-	function Idea(options) {
-	  this.title = options.title;
-	  this.body = options.body;
-	  this.id = options.ioptions.d || Date.now();
-	  this.quality = options.quality || 'none';
-	  this.completion = options.completion || 'new';
+	function Idea({ title, body, date, id, quality, completion }) {
+	  this.title = title;
+	  this.body = body;
+	  this.date = date;
+	  this.id = id || Date.now();
+	  this.quality = quality || 'none';
+	  this.completion = completion || 'new';
 	}
 
 	Idea.prototype.appendIdea = function () {
@@ -1742,15 +1743,16 @@
 	        <li class="idea ${ this.completion } ${ this.quality }"  id= ${ this.id }>
 	        <article class='first-line'>
 	          <span contenteditable class="title edit-title edit-content search" placeholder="Title">${ this.title }</span>
-	          <button type="button" class="delete-btn" aria-label="delete"></button>
+	              <button type="button" class="completed-btn" aria-label="complete"></button>
+	              <button type="button" class="delete-btn" aria-label="delete"></button>
 	        </article>
 	        <span contenteditable class="body edit-body edit-content search" placeholder="Body">${ this.body }</span>
 	        <span contenteditable class="date" placeholder="Due Date"><span>Due Date: </span>${ this.date }</span>
 	        <article class='third-line'>
+	        <span class="importance">Importance: <span class="quality" >${ this.quality }</span></span>
 	          <button type="button" class="up-btn" aria-label="increase-importance"></button>
 	          <button type="button" class="down-btn" aria-label="decrease-importance" ></button>
-	          <span>Importance: <span class="quality" >${ this.quality }</span></span>
-	          <button type="button" class="completed-btn" aria-label="complete"></button>
+
 	        </article>
 	      </li>
 	  `);
@@ -1913,7 +1915,7 @@
 
 	  editElement: function (id, input, value, ideaList) {
 	    id = parseInt(id);
-	    var idea = this.findIdea(id, ideaList);
+	    var idea = domObject.findIdea(id, ideaList);
 	    idea[input] = value;
 	    this.stringifyForLocalStorage(ideaList);
 	  },
@@ -1927,6 +1929,7 @@
 	  makeIdeaList: function (title, body, date, ideaList) {
 	    var item = { title: title, body: body, date: date };
 	    var idea = new Idea(item);
+	    this.checkDatePast($('.date-input').val(), idea.id, idea, ideaList);
 	    ideaList.push(idea);
 	    this.stringifyForLocalStorage(ideaList);
 	    idea.appendIdea();
@@ -1940,17 +1943,59 @@
 	    domObject.editElement(id, "quality", newQuality, ideaList);
 	  },
 
-	  checkDatePast: function (date) {
+	  dateIsValid: function () {
+	    $('.save-btn').attr('disabled', false);
+	    $('.date-error-message').text('');
+	  },
+
+	  dateIsNotValid: function () {
+	    $('.save-btn').attr('disabled', true);
+	    $('.date-error-message').text("Date is not valid");
+	    return false;
+	  },
+
+	  checkDate: function () {
+
+	    re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+	    if ($('.date-input').val() === '') {
+	      return false;
+	    }
+	    if ($('.date-input').val().match(re)) {
+	      this.dateIsValid();
+	    } else {
+	      this.dateIsNotValid();
+	    }
+	    if ($('.date-input').val().substring(0, 1) <= 1 && $('.date-input').val().substring(1, 2) <= 9) {
+	      this.dateIsValid();
+	    } else {
+	      this.dateIsNotValid();
+	    }
+	    if ($('.date-input').val().substring(3, 5) <= 31 && $('.date-input').val().substring(3, 5) >= 1) {
+	      this.dateIsValid();
+	    } else {
+	      this.dateIsNotValid();
+	    }
+	    if ($('.date-input').val().substring(6, 10) >= 2015 && $('.date-input').val().substring(6, 10) <= 2999) {
+	      this.dateIsValid();
+	    } else {
+	      this.dateIsNotValid();
+	    }
+	  },
+
+	  checkDatePast: function (date, id, idea, ideaList) {
+
 	    var month = date.substring(0, 2) - 1;
 	    var day = date.substring(3, 5);
 	    var year = date.substring(6, 10);
 	    var inputDate = new Date(year, month, day);
 	    var today = new Date();
 	    if (inputDate < today) {
-	      domObject.addCompleteClass();
-	      var id = $(this).parents('.idea').attr('id');
-	      domObject.editElement(id, "completion", "complete", ideaList);
+	      this.dateComplete(idea, ideaList);
 	    }
+	  },
+
+	  dateComplete: function (idea, ideaList) {
+	    idea.completion = "complete";
 	  }
 	};
 
@@ -2345,6 +2390,7 @@
 
 	const assert = __webpack_require__(26);
 	const domObject = __webpack_require__(16);
+	const Idea = __webpack_require__(15);
 
 	describe('domObject', function () {
 	  context('findIdea', function () {
@@ -2371,6 +2417,33 @@
 	      assert.equal(result.length, 0);
 	    });
 	  });
+
+	  context('sort items', function () {
+	    it('should sort given items by classes', function () {
+	      var ideaList = [{ id: 1, completion: "new" }, { id: 2, completion: "complete" }, { id: 3, completion: "new" }];
+	      var result = domObject.sortIdeas(ideaList);
+	      assert.deepEqual(result, [{ id: 3, completion: 'new' }, { id: 1, completion: 'new' }, { id: 2, completion: 'complete' }]);
+	    });
+	  });
+
+	  context('editElement', function () {
+	    it('should edit the given element', function () {
+	      var ideaList = [{ id: 1 }, { name: 'Chelsea', id: 2 }, { id: 3 }];
+	      domObject.editElement(2, "name", "Christine", ideaList);
+	      assert.deepEqual(ideaList, [{ id: 1 }, { name: 'Christine', id: 2 }, { id: 3 }]);
+	    });
+	  });
+	  //
+	  // context('checkPastDate', function() {
+	  //   it('should compare given date to current date', function() {
+	  //     var ideaList = [{id: 1}, {id: 2}, {id: 3}];
+	  //     var idea = new Idea({date:"04/05/2015", id:4});
+	  //     domObject.checkPastDate("04/05/2015", 4, idea, ideaList);
+	  //     assert.deepEqual(ideaList[3], "");
+	  //
+	  //   });
+	  // });
+
 	});
 
 /***/ },
